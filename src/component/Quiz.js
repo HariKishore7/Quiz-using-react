@@ -10,9 +10,11 @@ function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState([]);
   const [length, setLength] = useState(1);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [marks, setMarks] = useState(0);
   const [hasSelected, setHasSelected] = useState(false);
+  const [option, setOption] = useState();
+  const [timeTaken, setTimeTaken] = useState();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`http://localhost:3000/questions`).then((res) => {
@@ -28,38 +30,55 @@ function Quiz() {
           setData(res.data);
         });
     }
-  }, [currentQuestion,length]);
+  }, [currentQuestion, length]);
+
+  useEffect(() => {
+    setTimeTaken(new Date());
+  }, []);
 
   const nextQuestion = () => {
-    if(hasSelected){
+    if (hasSelected) {
+      const time = new Date();
+      const diff = time.getMilliseconds() - timeTaken.getMilliseconds();
+      setTimeTaken(time);
       setData({});
       setCurrentQuestion(currentQuestion + 1);
-      setHasSelected(false)
-    }
-    else{
+      setHasSelected(false);
+      axios
+        .patch(`http://localhost:3000/questions/${currentQuestion}`, {
+          selectedOption: option,
+          timeTaken: diff,
+        })
+        .then(() => console.log("Submitted successfully"));
+    } else {
       alert("Please select an option");
     }
   };
 
   const submitting = () => {
-    if(hasSelected){
-      setHasSelected(false)
-      setIsSubmitted(true);
-      setMarks(score.filter((bool) => bool === true).length);
-    }
-    else{
+    if (hasSelected) {
+      const marks = score.filter((bool) => bool === true).length;
+
+      const percentage = (marks / length) * 100;
+      setHasSelected(false);
+      axios
+        .post(`http://localhost:3000/report`, {
+          correctAnswers: marks,
+          inCorrectAnswers: length - marks,
+          percentage: percentage,
+        })
+        .then(() => navigate("/score"));
+    } else {
       alert("Please select an option");
     }
   };
 
   const selectedOption = (e) => {
     setHasSelected(true);
-    const option = Number(e.target.id);
-    // console.log(option)
-    // console.log(data.options);
+    const id = Number(e.target.id);
+    setOption(id);
     data.options.forEach((val) => {
-      // console.log(val.id==option)
-      if (val.id === option) {
+      if (val.id === id) {
         setScore((prev) => {
           const options = prev;
           options[data.id] = val.isCorrect;
@@ -67,42 +86,20 @@ function Quiz() {
         });
       }
     });
-    // console.log(score)
   };
-  const navigate = useNavigate();
   return (
-    <div className="row justify-content-center ">
-      <div className="col col-3">
-        <div className="container-fluid bg-info bg-gradient">
-          <div className="row justify-content-center my-5 pt-3">
-            {!isSubmitted ? (
-              <div className="col">
-                <h2>
-                  Question: {currentQuestion + 1} out of {length}
-                </h2>
-                <Question data={data} selectedOption={selectedOption} />
-                {currentQuestion < length - 1 ? (
-                  <button onClick={nextQuestion}>Next</button>
-                ) : (
-                  <button onClick={submitting}>Submit</button>
-                )}
-              </div>
-            ) : (
-              <div className="col">
-                <h2>Result</h2>
-                <div className="row">
-                  <span className="col">Correct</span>
-                  <span className="col">:</span> <span className="col">{marks}</span>
-                </div>
-                <div className="row">
-                  <span className="col">InCorrect</span>
-                  <span className="col">:</span> <span className="col">{length-marks}</span>
-                </div>
-                <button onClick={() => navigate("/")}>Start Again</button>
-              </div>
-            )}
-          </div>
-        </div>
+    <div className="row justify-content-center my-5 pt-3">
+      <div className="col">
+        <h2>
+          Question: {currentQuestion + 1} out of {length}
+          
+        </h2>
+        <Question data={data} selectedOption={selectedOption} />
+        {currentQuestion < length - 1 ? (
+          <button onClick={nextQuestion}>Next</button>
+        ) : (
+          <button onClick={submitting}>Submit</button>
+        )}
       </div>
     </div>
   );
