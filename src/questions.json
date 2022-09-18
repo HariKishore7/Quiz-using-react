@@ -1,0 +1,54 @@
+{
+  "questions": [
+    {
+      "id": 0,
+      "text": "React.js is a free and open-source front-end_______library?",
+      "options": [
+        { "id": 0, "text": "JavaScript", "isCorrect": true },
+        { "id": 1, "text": "Bootstrap", "isCorrect": false },
+        { "id": 2, "text": "CSS", "isCorrect": false },
+        { "id": 3, "text": "None of the above", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 1,
+      "text": "_______ is used in React.js to increase performance?",
+      "options": [
+        { "id": 0, "text": "Virtual DOM", "isCorrect": true },
+        { "id": 1, "text": "Original DOM", "isCorrect": false },
+        { "id": 2, "text": "Both of the above", "isCorrect": false },
+        { "id": 3, "text": "None of the above", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "What is Babel?",
+      "options": [
+        { "id": 0, "text": "A JavaScript compiler", "isCorrect": true },
+        { "id": 1, "text": "A JavaScript interpreter", "isCorrect": false },
+        { "id": 2, "text": "A JavaScript transpiler", "isCorrect": false },
+        { "id": 3, "text": "None of the above", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "_____ port is the default where the webpack-dev-sever will run?",
+      "options": [
+        { "id": 0, "text": "3030", "isCorrect": false },
+        { "id": 1, "text": "3000", "isCorrect": true },
+        { "id": 2, "text": "8080", "isCorrect": false },
+        { "id": 3, "text": "3333", "isCorrect": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "A valid react component can return only ______ elements?",
+      "options": [
+        { "id": 0, "text": "4", "isCorrect": false },
+        { "id": 1, "text": "1", "isCorrect": true },
+        { "id": 2, "text": "2", "isCorrect": true },
+        { "id": 3, "text": "3", "isCorrect": false }
+      ]
+    }
+  ]
+}
