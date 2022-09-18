@@ -1,6 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useLayoutEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
@@ -13,12 +12,13 @@ function Quiz() {
   const [length, setLength] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [marks, setMarks] = useState(0);
+  const [hasSelected, setHasSelected] = useState(false);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     axios.get(`http://localhost:3000/questions`).then((res) => {
       setLength(res.data.length);
     });
-  }, []);
+  }, [length]);
 
   useEffect(() => {
     if (currentQuestion < length) {
@@ -28,19 +28,32 @@ function Quiz() {
           setData(res.data);
         });
     }
-  }, [currentQuestion]);
+  }, [currentQuestion,length]);
 
   const nextQuestion = () => {
-    setCurrentQuestion(currentQuestion + 1);
+    if(hasSelected){
+      setData({});
+      setCurrentQuestion(currentQuestion + 1);
+      setHasSelected(false)
+    }
+    else{
+      alert("Please select an option");
+    }
   };
 
   const submitting = () => {
-    // setCurrentQuestion(1);
-    setIsSubmitted(true);
-    setMarks(score.filter((bool) => bool === true).length);
+    if(hasSelected){
+      setHasSelected(false)
+      setIsSubmitted(true);
+      setMarks(score.filter((bool) => bool === true).length);
+    }
+    else{
+      alert("Please select an option");
+    }
   };
 
   const selectedOption = (e) => {
+    setHasSelected(true);
     const option = Number(e.target.id);
     // console.log(option)
     // console.log(data.options);
@@ -85,9 +98,7 @@ function Quiz() {
                   <span className="col">InCorrect</span>
                   <span className="col">:</span> <span className="col">{length-marks}</span>
                 </div>
-                {/* <Link to='/start' className='link-primary  mt-2'> */}
                 <button onClick={() => navigate("/")}>Start Again</button>
-                {/* </Link> */}
               </div>
             )}
           </div>
