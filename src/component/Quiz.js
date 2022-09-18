@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
+import './Style.css'
+
 
 import Question from "./Question";
 function Quiz() {
@@ -88,18 +90,26 @@ function Quiz() {
     });
   };
   return (
-    <div className="row justify-content-center my-5 pt-3">
-      <div className="col">
-        <h2>
-          Question: {currentQuestion + 1} out of {length}
+    <div className="background">
+      <div className="row justify-content-center">
+        <div className="col">
           
-        </h2>
-        <Question data={data} selectedOption={selectedOption} />
-        {currentQuestion < length - 1 ? (
-          <button onClick={nextQuestion}>Next</button>
-        ) : (
-          <button onClick={submitting}>Submit</button>
-        )}
+          <h2>
+            Question: {currentQuestion + 1} out of {length}
+          </h2>
+          <Question data={data} selectedOption={selectedOption} />
+        </div>
+      </div>
+      <div className="row my-2 justify-content-center">
+        <div className="d-grid gap-2 col-6 mx-auto">
+          {currentQuestion < length - 1 ? (
+              <button className="btn btn-danger rounded-pill fw-bold" onClick={nextQuestion}>
+                Next <span className="ms-5 fw-bold">→</span>
+              </button>
+          ) : (
+              <button className="btn btn-danger rounded-pill mb-2" onClick={submitting}>Submit</button>
+          )}
+        </div>
       </div>
     </div>
   );

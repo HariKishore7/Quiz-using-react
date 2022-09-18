@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './Style.css'
 
 function Score() {
   const navigate = useNavigate();
@@ -13,20 +14,30 @@ function Score() {
     );
   }, []);
   return (
-    <div className="row justify-content-center my-5 pt-3">
-      <div className="col">
-        <h2>Result</h2>
-        <div className="row">
-          <span className="col">Correct</span>
-          <span className="col">:</span>
-          <span className="col">{report.correctAnswers}</span>
+    <div className="background">
+      <div className="row justify-content-center">
+        <div className="col-6">
+          <h3>Result: {report.percentage}%</h3>
         </div>
-        <div className="row">
-          <span className="col">InCorrect</span>
-          <span className="col">:</span>
-          <span className="col">{report.inCorrectAnswers}</span>
+      </div>
+      <div className="row justify-content-center my-5">
+        <div className="col-6">
+          <div className="py-2 bg-success p-2 m-2 text-dark">
+            <span className="mx-2 fw-bold">{report.correctAnswers}</span>
+            <span className="mx-2 text-white">Correct</span>
+          </div>
+          <div className="py-2 bg-danger p-2 m-2 text-dark border border-light">
+            <span className="mx-2 fw-bold">{report.inCorrectAnswers}</span>
+            <span className="mx-2 text-white">Incorrect</span>
+          </div>
         </div>
-        <button onClick={() => navigate("/")}>Start Again</button>
+      </div>
+      <div className="row justify-content-center">
+        <div className="d-grid gap-2 col-6 mx-auto">
+          <button className="btn btn-danger rounded-pill mb-2" onClick={() => navigate("/")}>
+            Start Again
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -1,34 +1,33 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import './Style.css'
 
 function Home() {
   const navigate = useNavigate();
   return (
-    <>
-      <div className="row justify-content-center my-5 pt-3">
-        <div className="col col-4 ">
-          <span className="h4">Upraised</span>
+    <div className="background">
+      <div className=" row justify-content-center">
+        <div className="col-6">
+          <img src="https://global-uploads.webflow.com/5da0478a951135b39339e016/603e29b9802caa2681c9be0f_Upraised%20Logo.svg" />
+          <span className="text-dark fw-bold fs-3">Upraised</span>
         </div>
       </div>
-
       <div className="row justify-content-center my-5">
-        <div className="col col-4">
-          <div className="btn btn-light btn-lg">
-            <span className="badge rounded-pill bg-light text-dark">Quiz</span>
-          </div>
+        <div className="col col-4 bg-light rounded-circle text-center">
+          <div className="fs-3 my-5 fw-bold text-danger">Quiz</div>
         </div>
       </div>
-      <div className="row justify-content-center my-5 pb-3">
-        <div className="col col-4 ">
-          <button
-            className="btn btn-outline-danger"
+      <div className="row justify-content-center">
+        <div className="d-grid gap-2 col-6 mx-auto">
+          <button 
+            className="btn btn-danger rounded-pill mb-2"
             onClick={() => navigate("/start")}
           >
             Start
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
