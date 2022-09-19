@@ -7,7 +7,7 @@ function Question({ data, selectedOption }) {
       <img alt={data.imgUrl} src={data.imgUrl} />
       {data?.options?.map((option) => {
         return (
-          <div className="py-2 form-check bg-light text-dark">
+          <div key={option.id} className="py-2 form-check bg-light text-dark">
             <input
               type="radio"
               className="form-check-input m-2"
@@ -16,7 +16,7 @@ function Question({ data, selectedOption }) {
               name={data.id}
               onClick={selectedOption}
             />
-            <label className="form-check-label mx-2" for={option.id}>
+            <label className="form-check-label mx-2" htmlFor={option.id}>
               {option.text}
             </label>
           </div>

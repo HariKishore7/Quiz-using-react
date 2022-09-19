@@ -26,8 +26,8 @@
           "isCorrect": false
         }
       ],
-      "selectedOption": 2,
-      "timeTaken": -344
+      "selectedOption": 3,
+      "timeTaken": -330
     },
     {
       "id": 1,
@@ -54,8 +54,8 @@
           "isCorrect": false
         }
       ],
-      "selectedOption": 1,
-      "timeTaken": -252
+      "selectedOption": 2,
+      "timeTaken": 659
     },
     {
       "id": 2,
@@ -83,7 +83,7 @@
         }
       ],
       "selectedOption": 3,
-      "timeTaken": 389
+      "timeTaken": -322
     },
     {
       "id": 3,
@@ -111,7 +111,7 @@
         }
       ],
       "selectedOption": 1,
-      "timeTaken": -19
+      "timeTaken": -406
     },
     {
       "id": 4,
