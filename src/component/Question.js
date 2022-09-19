@@ -4,7 +4,7 @@ function Question({ data, selectedOption }) {
   return (
     <div className="card">
       <div className="card-header">{data.text}</div>
-      <img alt={data.text} src={data.imgUrl} />
+      <img alt={data.imgUrl} src={data.imgUrl} />
       {data?.options?.map((option) => {
         return (
           <div className="py-2 form-check bg-light text-dark">
