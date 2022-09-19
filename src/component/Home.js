@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import './Style.css'
+import "./Style.css";
 
 function Home() {
   const navigate = useNavigate();
@@ -8,8 +8,11 @@ function Home() {
     <div className="background">
       <div className=" row justify-content-center">
         <div className="col-6">
-          <img src="https://global-uploads.webflow.com/5da0478a951135b39339e016/603e29b9802caa2681c9be0f_Upraised%20Logo.svg" />
-          <span className="text-dark fw-bold fs-3">Upraised</span>
+          <img
+            alt="upraised"
+            src="https://global-uploads.webflow.com/5da0478a951135b39339e016/603e29b9802caa2681c9be0f_Upraised%20Logo.svg"
+          />
+          <span className="text-dark fw-bold fs-3 mx-1 my-2"> Upraised</span>
         </div>
       </div>
       <div className="row justify-content-center my-5">
@@ -19,9 +22,9 @@ function Home() {
       </div>
       <div className="row justify-content-center">
         <div className="d-grid gap-2 col-6 mx-auto">
-          <button 
+          <button
             className="btn btn-danger rounded-pill mb-2"
-            onClick={() => navigate("/start")}
+            onClick={() => navigate("/question")}
           >
             Start
           </button>

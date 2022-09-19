@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import './Style.css'
+import "./Style.css";
 
 function Score() {
   const navigate = useNavigate();
@@ -34,7 +34,10 @@ function Score() {
       </div>
       <div className="row justify-content-center">
         <div className="d-grid gap-2 col-6 mx-auto">
-          <button className="btn btn-danger rounded-pill mb-2" onClick={() => navigate("/")}>
+          <button
+            className="btn btn-danger rounded-pill mb-2"
+            onClick={() => navigate("/")}
+          >
             Start Again
           </button>
         </div>

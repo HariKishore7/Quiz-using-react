@@ -2,10 +2,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
-import './Style.css'
-
+import "./Style.css";
 
 import Question from "./Question";
+
 function Quiz() {
   const [data, setData] = useState({});
 
@@ -93,9 +93,8 @@ function Quiz() {
     <div className="background">
       <div className="row justify-content-center">
         <div className="col">
-          
           <h2>
-            Question: {currentQuestion + 1} out of {length}
+            Question: {currentQuestion + 1}/{length}
           </h2>
           <Question data={data} selectedOption={selectedOption} />
         </div>
@@ -103,11 +102,19 @@ function Quiz() {
       <div className="row my-2 justify-content-center">
         <div className="d-grid gap-2 col-6 mx-auto">
           {currentQuestion < length - 1 ? (
-              <button className="btn btn-danger rounded-pill fw-bold" onClick={nextQuestion}>
-                Next <span className="ms-5 fw-bold">→</span>
-              </button>
+            <button
+              className="btn btn-danger rounded-pill fw-bold"
+              onClick={nextQuestion}
+            >
+              Next <span className="ms-5 fw-bold">→</span>
+            </button>
           ) : (
-              <button className="btn btn-danger rounded-pill mb-2" onClick={submitting}>Submit</button>
+            <button
+              className="btn btn-danger rounded-pill mb-2"
+              onClick={submitting}
+            >
+              Submit
+            </button>
           )}
         </div>
       </div>
