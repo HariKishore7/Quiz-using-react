@@ -18,13 +18,13 @@ npm start will run the project on the server, it will run on "http://localhost:3
 
 The reason to make the react project to run on custom port is we're going to run mock-server, where it will run on 3005, so to run our app on different port I have used custom port.
 
-STEP3: Please install json-server to create a mock-server using following command: npm install json-server --save
+STEP3: Please install json-server to create a mock-server using following command: npm install -g json-server
 
-PS E:\upraised-quiz> npm install json-server --save
+E:\upraised-quiz> npm install -g json-server
 
 STEP4: Please start mock server in another terminal using following command: json-server --watch src/questions.json
 
-PS E:\upraised-quiz> json-server --watch src/questions.json
+E:\upraised-quiz> json-server --watch src/questions.json
 
 The above command will run the mock server on the port: "http://localhost:3005/questions"
 
