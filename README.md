@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+This is a Quiz Project, where users can take assessment and when submitting the assesment they will get the result in final as well as percentage.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To run this file please clone the repository "https://github.com/HariKishore7/upraised-quiz.git" from GitHub or else please un-Zip the folder.
 
-## Available Scripts
+Please follow the below steps to run the project in your system.
 
-In the project directory, you can run:
+STEP 1: Please type in terminal by entering into the folder like: npm install
 
-### `npm start`
+PS E:\upraised-quiz> npm install
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+npm install will install all the dependencies which are present in the package.json to run the project in your system.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+STEP 2: Once all the dependencies are installed, type "npm start" like below
 
-### `npm test`
+PS E:\upraised-quiz> npm start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+npm start will run the project on the server, it will run on "http://localhost:3005/"
 
-### `npm run build`
+The reason to make the react project to run on custom port is we're going to run mock-server, where it will run on 3005, so to run our app on different port I have used custom port.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+STEP3: Please install json-server to create a mock-server using following command: npm install json-server --save
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+PS E:\upraised-quiz> npm install json-server --save
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+STEP4: Please start mock server in another terminal using following command: json-server --watch src/questions.json
 
-### `npm run eject`
+PS E:\upraised-quiz> json-server --watch src/questions.json
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The above command will run the mock server on the port: "http://localhost:3005/questions"
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+After running the mock-server, please route to the above url, to see the json file.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Please make sure that you start json-server, otherwise questions will not be fethed from the API and it won't show the questions while rendering.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Project Expalnation:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+In the first page it will show the home page, where user can start button to start the quiz.
 
-### Code Splitting
+Once he clicked, we're routing it to another url and the quiz questions will be shown one by one after user clicks on next button.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Before the user clicks on next button we are saving the user selected option and time taken for the particular question into the API.
 
-### Analyzing the Bundle Size
+User must select any one option, otherwise we're giving an alert to select one option. Once he selects one option and clicks on next button, we're moving to next question.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+For the last question, we're moving the button to Submit, once he submits the button, we're calculating the score and percentage based on the correct and incorrect answers and displaying them.
 
-### Making a Progressive Web App
+In the score page, we're giving a button called "start again" to start the quiz again.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The correct answers might help you to check functionality, below are the correct answers:
 
-### Advanced Configuration
+1. componentDidMount()
+2. Virtual DOM
+3. A JavaScript compiler
+4. 3000
+5. 1
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Hope you will like it.
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thank you,
+Hari Kishore.
