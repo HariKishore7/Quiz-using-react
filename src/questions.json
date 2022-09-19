@@ -26,8 +26,8 @@
           "isCorrect": false
         }
       ],
-      "selectedOption": 3,
-      "timeTaken": -330
+      "selectedOption": 2,
+      "timeTaken": 276
     },
     {
       "id": 1,
@@ -55,7 +55,7 @@
         }
       ],
       "selectedOption": 2,
-      "timeTaken": 659
+      "timeTaken": -134
     },
     {
       "id": 2,
@@ -83,7 +83,7 @@
         }
       ],
       "selectedOption": 3,
-      "timeTaken": -322
+      "timeTaken": 280
     },
     {
       "id": 3,
@@ -110,8 +110,8 @@
           "isCorrect": false
         }
       ],
-      "selectedOption": 1,
-      "timeTaken": -406
+      "selectedOption": 2,
+      "timeTaken": -662
     },
     {
       "id": 4,
@@ -141,8 +141,8 @@
     }
   ],
   "report": {
-    "correctAnswers": 2,
-    "inCorrectAnswers": 3,
-    "percentage": 40
+    "correctAnswers": 1,
+    "inCorrectAnswers": 4,
+    "percentage": 20
   }
 }
