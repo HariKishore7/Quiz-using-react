@@ -1,20 +1,11 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Style.css";
 
-function Score() {
+function Score({ report }) {
   const navigate = useNavigate();
-  const [report, setReport] = useState({});
-  useEffect(() => {
-    console.log(
-      axios
-        .get(`http://localhost:3000/report`)
-        .then((res) => setReport(res.data))
-    );
-  }, []);
   return (
-    <div className="background">
+    <>
       <div className="row justify-content-center">
         <div className="col-6">
           <h3>Result: {report.percentage}%</h3>
@@ -42,7 +33,7 @@ function Score() {
           </button>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -24,7 +24,7 @@ function Home() {
         <div className="d-grid gap-2 col-6 mx-auto">
           <button
             className="btn btn-danger rounded-pill mb-2"
-            onClick={() => navigate("/question")}
+            onClick={() => navigate("/quiz")}
           >
             Start
           </button>
