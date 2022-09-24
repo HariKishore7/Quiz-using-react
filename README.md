@@ -1,6 +1,6 @@
 This is a Quiz Project, where users can take assessment and when submitting the assesment they will get the result in final as well as percentage.
 
-To run this file please clone the repository "https://github.com/HariKishore7/upraised-quiz.git" from GitHub or else please un-Zip the folder.
+To run this file please clone the repository "https://github.com/HariKishore7/Quiz-using-react" from GitHub or else please un-Zip the folder.
 
 Please follow the below steps to run the project in your system.
 
